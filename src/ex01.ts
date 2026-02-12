@@ -13,11 +13,29 @@
  */
 
 class Smartphone {
-  
+  public brand: string;
+  private batteryLevel: number;
+  protected os: string;
+
+  constructor(brand: string, batteryLevel: number, os: string) {
+    this.brand = brand;
+    this.batteryLevel = batteryLevel;
+    this.os = os;
+  }
+
+  charge(amount: number): void {
+    this.batteryLevel = Math.min(this.batteryLevel + amount, 100);
+  }
+
+  showInfo(): void {
+    console.log(`${this.brand}, Battery: ${this.batteryLevel}%, OS: ${this.os}`);
+  }
 }
 
 class AndroidPhone extends Smartphone {
-  
+  upgradeOS(os: string): void {
+    this.os = os;
+  }
 }
 
 // Driver code

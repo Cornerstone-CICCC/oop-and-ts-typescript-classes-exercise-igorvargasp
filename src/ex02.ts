@@ -10,15 +10,29 @@
  */
 
 abstract class Appliance {
+  public brand: string;
 
+  constructor(brand: string) {
+    this.brand = brand;
+  }
+
+  turnOn(): void {
+    console.log(`${this.brand} is now ON`);
+  }
+
+  abstract energyConsumption(): number;
 }
 
 class WashingMachine extends Appliance {
-
+  energyConsumption(): number {
+    return 2.5;
+  }
 }
 
 class Refrigerator extends Appliance {
-
+  energyConsumption(): number {
+    return 1.2;
+  }
 }
 
 // Driver code
